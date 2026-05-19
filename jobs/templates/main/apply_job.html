@@ -1,0 +1,9 @@
+<h1>Apply for {{ job.title }}</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Your Name"><br>
+    <input type="email" name="email" placeholder="Your Email"><br>
+
+    <button type="submit">Apply</button>
+</form>

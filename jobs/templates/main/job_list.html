@@ -1,0 +1,8 @@
+<h1>All Jobs</h1>
+
+{% for job in jobs %}
+    <h3>{{ job.title }}</h3>
+    <p>{{ job.company }}</p>
+    <a href="/jobs/{{ job.id }}/">View Details</a>
+    <hr>
+{% endfor %}
