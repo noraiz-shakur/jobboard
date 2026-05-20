@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'jobs',
+    'tailwind',
+    'theme',
 ]
+
+TAILWIND_APP_NAME = 'theme'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -119,3 +124,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+

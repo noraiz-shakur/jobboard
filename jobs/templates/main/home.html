@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Home - JobBoard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-    <h1>Welcome to Job Board Platform</h1>
-    <a href="/jobs/">View Jobs</a>
+<body class="bg-gray-100">
+
+    <!-- Center Container -->
+    <div class="min-h-screen flex flex-col items-center justify-center text-center">
+
+        <!-- Heading -->
+        <h1 class="text-5xl font-bold text-blue-600 mb-4">
+            Welcome to Job Board Platform
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-gray-600 text-lg mb-8">
+            Find your dream job easily and apply in one click
+        </p>
+
+        <!-- Button -->
+        <a href="/jobs/"
+           class="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition">
+            View Jobs
+        </a>
+
+    </div>
 
 </body>
 </html>
