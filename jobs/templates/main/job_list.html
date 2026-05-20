@@ -2,7 +2,7 @@
 
 {% for job in jobs %}
     <h3>{{ job.title }}</h3>
-    <p>{{ job.company }}</p>
+    <p>{{ job.description }}</p>
     <a href="/jobs/{{ job.id }}/">View Details</a>
     <hr>
 {% endfor %}
