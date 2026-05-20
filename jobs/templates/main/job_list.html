@@ -1,47 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>All Jobs</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>All Jobs - JobBoard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  </head>
 
-<body class="bg-gray-100">
+  <body class="bg-gray-50 antialiased">
 
-<div class="container mx-auto px-4 py-10">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold text-emerald-600 tracking-tight">
+          Job Portal
+        </a>
+        <div class="flex items-center space-x-6">
+          <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Home</a>
+          <a href="/jobs/" class="text-gray-900 font-medium text-sm">Jobs</a>
+          <a href="/jobs/add/" class="bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-emerald-700 transition-colors">
+            + Post Job
+          </a>
+        </div>
+      </div>
+    </nav>
 
-    <!-- Page Title -->
-    <h1 class="text-4xl font-bold text-center text-blue-600 mb-10">
-        All Jobs
-    </h1>
+    <div class="container mx-auto px-6 py-12">
 
-    <!-- Jobs Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Page Header -->
+      <div class="mb-10">
+        <h1 class="text-3xl font-bold text-gray-900 mb-1">All Jobs</h1>
+        <p class="text-gray-500 text-sm">Browse and apply to the latest openings</p>
+      </div>
 
+      <!-- Jobs Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {% for job in jobs %}
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-sm transition-all flex flex-col justify-between">
+
+          <div>
+            <!-- Company -->
+            <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-1">{{ job.company }}</p>
 
             <!-- Job Title -->
-            <h3 class="text-xl font-semibold text-blue-600 mb-2">
-                {{ job.title }}
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">
+              {{ job.title }}
             </h3>
 
             <!-- Description -->
-            <p class="text-gray-600 mb-4">
-                {{ job.description|truncatewords:20 }}
+            <p class="text-gray-500 text-sm leading-relaxed mb-5">
+              {{ job.description|truncatewords:20 }}
             </p>
+          </div>
 
-            <!-- Button -->
-            <a href="/jobs/{{ job.id }}/"
-               class="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                View Details
-            </a>
+          <!-- Button -->
+          <a href="/jobs/{{ job.id }}/"
+             class="inline-block text-center bg-emerald-50 text-emerald-700 text-sm font-medium px-4 py-2 rounded-lg hover:bg-emerald-600 hover:text-white transition-colors">
+            View Details
+          </a>
 
         </div>
         {% endfor %}
+      </div>
 
     </div>
-
-</div>
-
-</body>
+  </body>
 </html>

@@ -29,7 +29,8 @@ def add_job(request):
             title=title,
             company=company,
             description=description,
-            location=location
+            location=location,
+        
         )
         return redirect('job_list')
 

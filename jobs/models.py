@@ -14,8 +14,9 @@ class Job(models.Model):
 
     employer = models.ForeignKey(EmployerProfile, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
+    company = models.CharField(max_length=100)
     description = models.TextField()
-    salary = models.PositiveIntegerField()
+    salary = models.CharField(max_length=100, null=True, blank=True)
     location = models.CharField(max_length=200)
     job_type = models.CharField(max_length=50, choices=JOB_TYPE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -1,9 +1,83 @@
-<h1>Apply for {{ job.title }}</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Apply for {{ job.title }} - JobBoard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<form method="POST">
-    {% csrf_token %}
-    <input type="text" name="name" placeholder="Your Name"><br>
-    <input type="email" name="email" placeholder="Your Email"><br>
+  <body class="bg-gray-50 antialiased">
 
-    <button type="submit">Apply</button>
-</form>
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold text-emerald-600 tracking-tight">
+          Job Portal
+        </a>
+        <div class="flex items-center space-x-6">
+          <a href="/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Home</a>
+          <a href="/jobs/" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">Jobs</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="max-w-lg mx-auto px-4 py-12">
+
+      <!-- Back link -->
+      <a href="/jobs/{{ job.id }}/" class="text-sm text-gray-400 hover:text-gray-600 transition-colors mb-6 inline-block">
+        ← Back to Job
+      </a>
+
+      <!-- Card -->
+      <div class="bg-white border border-gray-200 rounded-xl p-8">
+
+        <!-- Header -->
+        <div class="mb-8">
+          <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-1">Applying for</p>
+          <h1 class="text-xl font-bold text-gray-900">{{ job.title }}</h1>
+        </div>
+
+        <!-- Form -->
+        <form method="POST" class="space-y-5">
+          {% csrf_token %}
+
+          <!-- Name -->
+          <div>
+            <label class="block text-xs text-gray-500 font-medium mb-1.5">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              class="w-full border border-gray-200 text-sm text-gray-900 placeholder-gray-400 p-3 rounded-lg focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="block text-xs text-gray-500 font-medium mb-1.5">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              class="w-full border border-gray-200 text-sm text-gray-900 placeholder-gray-400 p-3 rounded-lg focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition"
+              required
+            />
+          </div>
+
+          <!-- Submit -->
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="w-full bg-emerald-600 text-white text-sm font-medium px-6 py-3 rounded-xl hover:bg-emerald-700 transition-colors"
+            >
+              Submit Application
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </body>
+</html>
